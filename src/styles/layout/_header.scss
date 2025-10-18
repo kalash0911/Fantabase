@@ -12,6 +12,17 @@
         width: 100%;
         max-width: 155px;
 
+        @include media('<tablet_s') {
+            display: grid;
+            place-items: center;
+            max-width: 48px;
+            min-width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            box-shadow: $box-shadow;
+            background: #205A5E0A;
+        }
+
         &.hide {
             @include media('<tablet') {
                 display: none;
@@ -68,7 +79,7 @@
 
         @include media('<tablet_s') {
             position: absolute;
-            top: 8px;
+            top: 13px;
             left: 40px;
             display: block;
             max-width: 125px;
@@ -108,12 +119,16 @@
     }
 
     .burger {
+        --stb-burger-translate-y: -50%;
+        --stb-burger-translate-rotate: 0deg;
+
         display: none;
         position: relative;
         min-width: 48px;
         height: 48px;
         border-radius: 50%;
         box-shadow: $box-shadow;
+        background: #205A5E0A;
         z-index: 1;
         border: none;
         outline: none;
@@ -123,11 +138,14 @@
             display: block;
         }
 
+        span,
         &::before,
         &::after {
             content: '';
             position: absolute;
-            left: 0;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, var(--stb-burger-translate-y)) rotate(var(--stb-burger-translate-rotate));
             width: 18px;
             height: 2px;
             background-color: $white;
@@ -136,22 +154,27 @@
         }
 
         &::before {
-            top: 13px;
+            --stb-burger-translate-y: calc(-50% - 6px);
         }
 
         &::after {
-            bottom: 13px;
+            --stb-burger-translate-y: calc(-50% + 6px);
         }
 
-        .active & {
+        .active & {  
+            
+            span {
+                opacity: 0;
+            }
+
             &::before {
-                top: 18px;
-                transform: rotate(-225deg);
+                --stb-burger-translate-y: -50%;
+                --stb-burger-translate-rotate: -225deg;
             }
 
             &::after {
-                bottom: 20px;
-                transform: rotate(225deg);
+                --stb-burger-translate-y: -50%;
+                --stb-burger-translate-rotate: 225deg;
             }
         }
     }

@@ -51,6 +51,22 @@
     &:hover {
         background: $red_gradient-hover;
     }
+
+    &.fixed {
+        position: fixed;
+        right: 51px;
+        bottom: 20px;
+        z-index: 5;
+
+        @include media('<tablet') {
+            font-size: 10px;
+            right: 16px;
+        }
+
+        .active & { 
+            display: none;
+        }
+    }
 }
 
 .text {
@@ -62,3 +78,86 @@
         font-size: 16px;
     }
 }
+
+.form-sm {
+    position: relative;
+    width: 100%;
+    max-width: 383px;
+    margin: 0 auto;
+    background: #4C146824;
+    padding: 4px 4px 4px 20px;
+    border-radius: 32px;
+    box-shadow: $box-shadow;
+    border: 1px solid transparent;
+    margin-bottom: 58px;
+
+    @include media('<phone') {
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: none;
+    }
+
+    form {
+        display: flex;
+        justify-content: space-between;
+
+        @include media('<phone') {
+            flex-direction: column;
+            gap: 14px;
+        }
+    }
+
+    .input-wrap {
+
+        @include media('<phone') {
+            position: relative;
+            border-radius: 32px;
+            box-shadow: $box-shadow;
+            border: 1px solid transparent;
+            background: #4C146824;
+        }
+
+        &::before {
+            content:'';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            background: linear-gradient(180deg, rgba(255, 114, 58, 0.3) 0%, rgba(181, 47, 2, 0.3) 100%);
+            z-index: -2;
+        }
+
+        &::after {
+            content:'';
+            position: absolute;
+            inset: 1px;
+            border-radius: 32px;
+            background: $black;
+            z-index: -1;
+        }
+    }
+
+    .input {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 12px 0;
+        font: $regular 16px/1.6 $Gilroy;
+        color: $white;
+        letter-spacing: -0.02em;
+
+        @include media('<phone') {
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        &::placeholder {
+            font: inherit;
+            color: inherit;
+            letter-spacing: inherit;
+            text-align: inherit;
+        }
+    }
+}
+
+    
