@@ -73,6 +73,26 @@
     }
 }
 
+.main-title {
+    background-image: $white_gradient;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-box-decoration-break: clone;
+    font: $bold 68px/1 $Fontspring;
+    text-align: center;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+
+    @include media('<tablet') {
+        font-size: 48px;
+    }
+
+    @include media('<phone') {
+        margin-bottom: 20px;
+        font-size: 38px;
+    }
+}
+
 .text {
     font: $regular 18px/1.4 $Gilroy;
     text-align: center;

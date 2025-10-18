@@ -49,23 +49,6 @@
 
     .main-title {
         margin-bottom: 38px;
-        background-image: $white_gradient;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        -webkit-box-decoration-break: clone;
-        font: $bold 68px/1 $Fontspring;
-        text-align: center;
-        letter-spacing: -2px;
-        text-transform: uppercase;
-
-        @include media('<tablet') {
-            font-size: 48px;
-        }
-
-        @include media('<phone') {
-            margin-bottom: 20px;
-            font-size: 38px;
-        }
     }
 
     .img {
@@ -79,5 +62,124 @@
 /* -------------------stats-section----------------- */
 
 .stats-section {
-    padding: 60px 0;
+
+    .content {
+        position: relative;
+        padding: 400px 0;
+
+        @include media('<desktop') {
+            padding: 50px 0;
+        }
+    }
+
+    .main-title {
+        margin-bottom: 0;
+
+        @include media('<desktop') {
+            margin-bottom: 44px;
+        }
+
+        @include media('<phone') {
+            font-size: 32px;
+        }
+    }
+
+    .block {
+        display: flex;
+        gap: 24px;
+        scrollbar-width: none;
+
+        @include media('<desktop') {
+            overflow: auto;
+            margin: 0 -40px;
+            padding: 0 40px;
+        }
+    }
+
+    .item {
+        position: absolute;
+        width: 100%;
+        max-width: 345px;
+        padding: 40px 25px;
+        background: #9420070D;
+        border-radius: 32px;
+        text-align: center;
+        box-shadow: $box-shadow;
+        backdrop-filter: blur(5px);
+
+        @include media('<desktop') {
+            position: relative;
+            padding: 25px 17px;
+            min-width: 225px;
+        }
+
+        &:first-child {
+            top: 60px;
+            left: 80px;
+
+            @include media('<desktop') {
+                top: 0;
+                left: 0;
+            }
+        }
+
+        &:nth-child(2) {
+            top: 45%;
+            right: 0;
+            transform: translateY(-55%); 
+            
+            @include media('<desktop') {
+                top: 0;
+                right: 0;
+                transform: none;
+            }
+        }
+
+        &:last-child {
+            bottom: 60px;
+            left: 30%;
+
+            @include media('<desktop') {
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+
+    .img-wrap {
+        margin-bottom: 38px;
+
+        img {
+            @include media('<desktop') {
+                height: 65px;
+            }
+        }
+    }
+
+    .item-title {
+        margin-bottom: 8px;
+        font: $semi-bold 40px/1 $Fontspring;
+
+        @include media('<desktop') {
+            font-size: 30px;
+        }
+
+        @include media('<phone') {
+            font-size: 26px;
+        }
+
+        span {
+            font-family: $Gilroy;
+        }
+    }
+
+    .item-text {
+        margin: 0;
+        font: $regular 20px/1.3 $Gilroy;
+        opacity: 0.7;
+
+        @include media('<phone') {
+            font-size: 13px;
+        }
+    }
 }
