@@ -10,7 +10,7 @@ htmlFiles.forEach((file) => {
 });
 
 export default defineConfig({
-  base: '/vite-landing-template',
+  base: '/Fantabase',
   root: 'src',
   publicDir: '../public',
   plugins: [
@@ -22,5 +22,7 @@ export default defineConfig({
     },
     outDir: '../dist/',
     emptyOutDir: true,
+    minify: false,
+    cssMinify: false,
   },
 });
