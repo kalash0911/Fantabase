@@ -95,8 +95,8 @@
 
 .text {
     font: $regular 18px/1.4 $Gilroy;
-    text-align: center;
     color: $light_gray;
+    margin: 0;
 
     @include media('<phone') {
         font-size: 16px;
