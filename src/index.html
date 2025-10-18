@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fantabase</title>
+  <link rel="icon" type="image/png" href="../images/icons/favicon.png">
   <link rel="stylesheet" href="/styles/main.scss">
 </head>
 
@@ -15,9 +16,25 @@
       <section class="main-section">
         <div class="container">
           <div class="content">
-
+            <div class="text-wrap">
+              <h1 class="main-title">Fantasy Football Supercharged by AI</h1>
+              <p class="text">Every week, millions of fantasy players lose by missing key news. Fantabase is the fix: a
+                personalized feed, smart alerts, and an AI-ssistant Manager™ in your pocket to help you win trades and
+                set
+                perfect lineups.</p>
+            </div>
+            <div class="for-wrap sm">
+              <form action="#">
+                <input class="input" placeholder="Enter your email" type="email" required>
+                <input class="main-btn" type="submit" value="Join the waitlist">
+              </form>
+            </div>
           </div>
         </div>
+        <picture>
+          <source srcset="../images/main-img-mob.webp" media="(max-width: 601px)" />
+          <img class="img" src="./images/main-img.webp" alt="img" />
+        </picture>
       </section>
     </main>
     {{> footer }}

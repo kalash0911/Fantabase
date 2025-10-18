@@ -1,0 +1,129 @@
+/* -------------------main-section----------------- */
+
+.main-section {
+    position: relative;
+    padding: 94px 0 0 0;
+    overflow: hidden;
+
+    &::before,
+    &::after {
+        content:'';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);    
+        width: 1800px;
+        height: 365px;
+        border-radius: 50%;
+        
+        @include media('<tablet_s') {
+            width: 916px;
+            height: 186px;
+        }
+    }
+
+    &::before {
+        bottom: -183px;
+        background: $dark_red_gradient_radial;
+        z-index: -1;
+
+        @include media('<tablet_s') {
+            bottom: -80px;
+            z-index: 1;
+        }
+    }
+
+    &::after {
+        bottom: -275px;
+        background: $black;
+        z-index: 2;
+
+        @include media('<tablet_s') {
+            bottom: -135px;
+        }
+    }
+
+    .text-wrap {
+        max-width: 800px;
+        margin: 0 auto 26px auto;
+    }
+
+    .main-title {
+        margin-bottom: 38px;
+        background-image: $white_gradient;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-box-decoration-break: clone;
+        font: $bold 68px/1 $Fontspring;
+        text-align: center;
+        letter-spacing: -2px;
+        text-transform: uppercase;
+
+        @include media('<tablet') {
+            font-size: 48px;
+        }
+
+        @include media('<phone') {
+            margin-bottom: 20px;
+            font-size: 38px;
+        }
+    }
+
+    .for-wrap {
+        position: relative;
+        width: 100%;
+        max-width: 383px;
+        margin: 0 auto;
+        background: #4C146824;
+        padding: 4px 4px 4px 20px;
+        border-radius: 32px;
+        box-shadow: $box-shadow;
+        border: 1px solid transparent;
+        margin-bottom: 58px;
+
+        &::before {
+            content:'';
+            position: absolute;
+            inset: 0;
+            border-radius: 32px;
+            background: linear-gradient(180deg, rgba(255, 114, 58, 0.3) 0%, rgba(181, 47, 2, 0.3) 100%);
+            z-index: -2;
+        }
+
+        &::after {
+            content:'';
+            position: absolute;
+            inset: 1px;
+            border-radius: 32px;
+            background: $black;
+            z-index: -1;
+        }
+        
+        form {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    .input {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 12px 0;
+        font: $regular 16px/1.6 $Gilroy;
+        color: $white;
+        letter-spacing: -0.02em;
+
+        &::placeholder {
+            font: inherit;
+            color: inherit;
+            letter-spacing: inherit;
+        }
+    }
+
+    .img {
+        display: block;
+        width: 100%;
+        max-width: 1164px;
+        margin: 0 auto;
+    }
+}
