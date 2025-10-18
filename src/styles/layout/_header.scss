@@ -46,7 +46,7 @@
             width: 70%;
             flex-direction: column;
             justify-content: space-between;
-            padding: 113px 40px 40px 40px;
+            padding: 113px 40px;
             background: $black;
             border-radius: 0;
             box-shadow: none;
@@ -58,7 +58,7 @@
         @include media('<phone') {
             right: -100%;
             width: 100%;
-            padding: 100px 16px 24px 16px;
+            padding: 100px 16px;
         }
 
         .active & {
