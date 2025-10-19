@@ -1121,3 +1121,34 @@
         }
     }
 }
+
+/* -------------------winning-section--------------- */
+
+.winning-section {
+    padding: 80px 0 180px 0;
+    background-color: $white;
+
+    @include media('<tablet') {
+        padding: 60px 0;
+    }
+
+    .img-wrap {
+        max-width: 540px;
+        margin: 0 auto 80px auto;
+
+        @include media('<tablet') {
+            margin: 0 auto 40px auto;
+        }
+    }
+
+    .text {
+        max-width: 770px;
+        margin: 0 auto 40px auto;
+        color: $gray;
+        text-align: center;
+    }
+
+    .form-sm {
+        margin: 0 auto;
+    }
+}

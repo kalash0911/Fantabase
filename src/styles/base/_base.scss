@@ -222,6 +222,40 @@ html{
             transition: background-color 9999s ease-out 0s !important;
         }
     }
+
+    &.white {
+        background:  #0A0D170D;
+
+        @include media('<phone') {
+            background: none;
+        }
+
+        .input-wrap {
+
+            @include media('<phone') {
+                background:  #0A0D170D;
+            }
+
+            &::before {
+                background: linear-gradient(180deg, rgba(255, 114, 58, 0.3) 0%, rgba(181, 47, 2, 0.3) 100%);
+            }
+
+            &::after {
+                background: $white;
+            }
+        }
+
+        .input {
+            color: $black;
+
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active {
+                -webkit-text-fill-color: $black !important;
+            }
+        }
+    }
 }
 
 .side-bar {
