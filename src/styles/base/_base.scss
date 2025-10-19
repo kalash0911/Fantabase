@@ -36,7 +36,26 @@ html{
     opacity: 0;
     transition: $anim_03;
 
-    .active & {
+    .active &,
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #030808CC;
+    z-index: 10;
+    visibility: hidden;
+    opacity: 0;
+    transition: $anim_03;
+
+    &.active {
         visibility: visible;
         opacity: 1;
     }
@@ -545,5 +564,46 @@ html{
 
     .main-btn {
         width: 100%;
+    }
+}
+
+.popup-waitlist {
+    width: 95%;
+    max-width: 600px;
+    background: #030808CC;
+    border-radius: 20px;
+    padding: 60px 80px;
+    box-shadow: $box-shadow;
+
+    @include media('<phone') {
+        padding: 60px 20px 20px 20px;
+    }
+
+    .popup-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+
+        @include media('<phone') {
+            max-width: 28px;
+        }
+    }
+
+    .main-title {
+        font-size: 40px;
+        margin-bottom: 40px;
+
+        @include media('<phone') {
+            font-size: 38px;
+        }
+    }
+
+    .text {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+
+    .form-sm {
+        margin-bottom: 0;
     }
 }

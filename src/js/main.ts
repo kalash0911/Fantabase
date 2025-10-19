@@ -153,32 +153,40 @@ destroySlidersOnResize(".hoursSlider", 99999, {
 
 // For popups
 
-document.addEventListener('DOMContentLoaded', () => {
-    const openButtons = document.querySelectorAll<HTMLElement>('.popup-contact-btn');
-    const modal = document.querySelector<HTMLElement>('.popup-contact');
-    const closeButton = document.querySelector<HTMLElement>('.popup-close');
-    const overlay = document.querySelector<HTMLElement>('.overflow');
+document.addEventListener("DOMContentLoaded", () => {
+    const overlay = document.querySelector<HTMLElement>(".overlay");
+    const closeButtons = document.querySelectorAll<HTMLElement>(".popup-close");
     const body = document.body;
 
-    if (!openButtons.length || !modal || !closeButton || !overlay) {
-        console.log('Modal not initialized: required elements not found.');
+    if (!overlay || !closeButtons.length) {
+        console.warn("Popup system not initialized: required elements not found.");
         return;
     }
 
-    const openModal = () => {
-        modal.classList.add('open');
-        body.classList.add('body_lock');
+    const initPopup = (triggerClass: string, popupClass: string) => {
+        const openButtons = document.querySelectorAll<HTMLElement>(`.${triggerClass}`);
+        const modal = document.querySelector<HTMLElement>(`.${popupClass}`);
+
+        if (!openButtons.length || !modal) return;
+
+        const openModal = () => {
+            modal.classList.add("open");
+            overlay.classList.add("active");
+            body.classList.add("body_lock");
+        };
+
+        const closeModal = () => {
+            modal.classList.remove("open");
+            overlay.classList.remove("active");
+            body.classList.remove("body_lock");
+        };
+
+        openButtons.forEach((button) => button.addEventListener("click", openModal));
+        closeButtons.forEach((btn) => btn.addEventListener("click", closeModal));
+        overlay.addEventListener("click", closeModal);
     };
 
-    const closeModal = () => {
-        modal.classList.remove('open');
-        body.classList.remove('body_lock');
-    };
-
-    openButtons.forEach(button => {
-        button.addEventListener('click', openModal);
-    });
-
-    closeButton.addEventListener('click', closeModal);
-    overlay.addEventListener('click', closeModal);
+    initPopup("popup-contact-btn", "popup-contact");
+    initPopup("popup-waitlist-btn", "popup-waitlist");
 });
+

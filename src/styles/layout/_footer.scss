@@ -55,6 +55,8 @@
 
     .socials-link {
         transition: $anim_03;
+        background: none;
+        border: none;
 
         &:hover {
             transform: scale(1.1);
