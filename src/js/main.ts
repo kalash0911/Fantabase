@@ -73,3 +73,67 @@ document.addEventListener("DOMContentLoaded", () => {
     sections.forEach((section) => activeSectionObserver.observe(section));
 });
 
+// for Swipers
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+function destroySlidersOnResize(selector, width, obj, moreThan) {
+    const init = {
+        ...obj,
+    };
+
+    const win = window;
+    const sliderSelector = document.querySelector(selector);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    let swiper = new Swiper(selector, init);
+
+    const toggleInit = () => {
+        const neededWidth = moreThan
+            ? win.innerWidth >= width
+            : win.innerWidth <= width;
+        if (neededWidth) {
+            if (!sliderSelector?.classList.contains("swiper-initialized")) {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                swiper = new Swiper(selector, init);
+            }
+        } else if (sliderSelector.classList.contains("swiper-initialized")) {
+            swiper.destroy();
+        }
+    };
+
+    ["load", "resize"].forEach((evt) =>
+        win.addEventListener(evt, toggleInit, false)
+    );
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+destroySlidersOnResize(".hoursSlider", 99999, {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    loop: true,
+    coverflowEffect: {
+        rotate: -40,
+        stretch: 20,
+        depth: 150,
+        modifier: 1,
+        slideShadows: false,
+    },
+
+    breakpoints: {
+        0: {
+            coverflowEffect: {
+                stretch: -10,
+            },
+        },
+        767: {
+            coverflowEffect: {
+                stretch: 20,
+            },
+        },
+    },
+});

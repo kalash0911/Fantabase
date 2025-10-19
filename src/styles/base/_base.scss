@@ -94,6 +94,14 @@ html{
     @include media('<phone') {
         font-size: 38px;
     }
+
+    span {
+        font-family: $Gilroy;
+    }
+
+    &.white {
+        background-image: $black_gradient;
+    }
 }
 
 .title {
