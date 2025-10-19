@@ -268,8 +268,16 @@ html{
             padding: 5px 10px;
         }
 
-        &.active,
-        &:hover {
+        @include media('>=desktop') {
+            &:hover {
+                --stb-side-bar-link-opacity: 1;
+
+                background: #9420070D;
+                box-shadow: $box-shadow-red;
+            }
+        }
+
+        &.active {
             --stb-side-bar-link-opacity: 1;
 
             background: #9420070D;
