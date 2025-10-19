@@ -13,6 +13,7 @@
   <div id="wrapper">
     {{> header }}
     <main>
+      {{> side-bar }}
       <a class="main-btn fixed" href="#">Join the waitlist</a>
       <section class="main-section">
         <div class="container">
@@ -48,15 +49,15 @@
                 <div class="img-wrap">
                   <img src="./images/img-stats2.webp" alt="icon">
                 </div>
-                <h3 class="item-title">90% updates</h3>
-                <p class="item-text">are not about your team</p>
+                <h3 class="item-title">news buried</h3>
+                <p class="item-text">under hot takes and noise</p>
               </div>
               <div class="item">
                 <div class="img-wrap">
                   <img src="./images/img-stats3.webp" alt="icon">
                 </div>
-                <h3 class="item-title">90% updates</h3>
-                <p class="item-text">are not about your team</p>
+                <h3 class="item-title">Too late</h3>
+                <p class="item-text">to act before kickoff</p>
               </div>
             </div>
           </div>
@@ -98,27 +99,92 @@
           </div>
         </div>
       </section>
-      <section class="less-section">
-        <span class="grad"></span>
-        <div class="container">
-          <div class="content">
-            <div class="img-wrap">
-              <img class="main-img" src="./images/less-img1.webp" alt="img">
-              <img class="img" src="./images/less-img2.webp" alt="img">
+      <div class="sidevisible">
+        <section class="less-section personalized" id="personalized">
+          <span class="grad"></span>
+          <div class="container">
+            <div class="content">
+              <div class="img-wrap">
+                <img class="main-img" src="./images/less-img1.webp" alt="img">
+                <img class="img" src="./images/less-img2.webp" alt="img">
+              </div>
+              <div class="text-wrap">
+                <h2 class="title">Less Noise, More Wins</h2>
+                <p class="text">Imagine opening Twitter on a Sunday morning. You see hundreds of tweets about 30
+                  different
+                  players — only 3 of which are actually on your team. You scroll, scroll, scroll. You waste time. And
+                  you
+                  still might miss that your WR is a surprise scratch.
+                  <br><br>
+                  Fantabase fixes that with a curated feed that only cares about your roster.
+                </p>
+              </div>
+              <img class="icon" src="./images/icons/icon-puls.svg" alt="icon">
             </div>
-            <div class="text-wrap">
-              <h2 class="title">Less Noise, More Wins</h2>
-              <p class="text">Imagine opening Twitter on a Sunday morning. You see hundreds of tweets about 30 different
-                players — only 3 of which are actually on your team. You scroll, scroll, scroll. You waste time. And you
-                still might miss that your WR is a surprise scratch.
-                <br><br>
-                Fantabase fixes that with a curated feed that only cares about your roster.
-              </p>
-            </div>
-            <img class="icon" src="./images/icons/icon-puls.svg" alt="icon">
           </div>
-        </div>
-      </section>
+        </section>
+        <section class="how-section personalized" id="how">
+          <div class="container">
+            <div class="content">
+              <h2 class="title">How it works</h2>
+              <div class="block">
+                <div class="item">
+                  <div class="img-wrap">
+                    <img src="./images/icons/icon-how1.svg" alt="icon">
+                  </div>
+                  <h3 class="item-title">Sync your Sleeper account</h3>
+                  <p class="item-text">Connect your Sleeper account in one click — or add players manually to start
+                    building your roster.</p>
+                </div>
+                <div class="item">
+                  <div class="img-wrap">
+                    <img src="./images/icons/icon-how2.svg" alt="icon">
+                  </div>
+                  <h3 class="item-title">Fantabase pulls updates</h3>
+                  <p class="item-text">Our engine gathers news from trusted sources like X (Twitter) and YouTube, so you
+                    don’t need to scroll endlessly.</p>
+                </div>
+                <div class="item">
+                  <div class="img-wrap">
+                    <img src="./images/icons/icon-how3.svg" alt="icon">
+                  </div>
+                  <h3 class="item-title">Filtered just for you</h3>
+                  <p class="item-text">Fantabase ranks and filters updates, showing only what impacts your players, your
+                    matchups, and your team.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="watchlist">
+          <div class="container">
+            <div class="content">
+
+            </div>
+          </div>
+        </section>
+        <section class="watchlist">
+          <div class="container">
+            <div class="content">
+
+            </div>
+          </div>
+        </section>
+        <section class="wowie">
+          <div class="container">
+            <div class="content">
+
+            </div>
+          </div>
+        </section>
+        <section class="wowie">
+          <div class="container">
+            <div class="content">
+
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
     {{> footer }}
   </div>
