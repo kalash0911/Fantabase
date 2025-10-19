@@ -825,4 +825,32 @@
             max-width: 550px;
         }
     }
+
+    &.ssistant-section {
+
+        .content {
+            align-items: center;
+
+            @include media('<desktop') {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .img-wrap {
+            max-width: 380px;
+            margin-left: 10%;
+
+            @include media('<widescreen_s') {
+                margin: 0;
+            }
+
+            @include media('<phone') {
+                max-width: 210px;
+            }
+        }
+
+        .block {
+            max-width: 770px;
+        }
+    }
 }
