@@ -26,23 +26,35 @@ for (let i = 0; i < linkClose.length; ++i) {
 document.addEventListener("DOMContentLoaded", () => {
     const sidebar = document.querySelector<HTMLElement>(".side-bar");
     const links = document.querySelectorAll<HTMLAnchorElement>(".side-bar-link");
-    const wrapper = document.querySelector<HTMLElement>(".sidevisible");
+    const sidevisible = document.querySelectorAll<HTMLElement>(".sidevisible");
     const sections = document.querySelectorAll<HTMLElement>(
         ".personalized, .watchlist, .wowie"
     );
 
-    if (!sidebar || !wrapper || sections.length === 0) return;
+    if (!sidebar || sidevisible.length === 0) return;
 
-    const sidebarObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
         (entries) => {
+            let isAnyVisible = false;
+
             entries.forEach((entry) => {
-                sidebar.classList.toggle("is-visible", entry.isIntersecting);
+                if (entry.isIntersecting) {
+                    isAnyVisible = true;
+                }
             });
+
+            if (isAnyVisible) {
+                sidebar.classList.add("is-visible");
+            } else {
+                sidebar.classList.remove("is-visible");
+            }
         },
-        { threshold: 0.1 }
+        {
+            threshold: 0, // Срабатывает при касании секции краем экрана
+        }
     );
 
-    sidebarObserver.observe(wrapper);
+    sidevisible.forEach((section) => observer.observe(section));
 
     const activeSectionObserver = new IntersectionObserver(
         (entries) => {
@@ -67,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0.4 }
+        { threshold: 0 }
     );
 
     sections.forEach((section) => activeSectionObserver.observe(section));
