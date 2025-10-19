@@ -367,3 +367,101 @@
         }
     }
 }
+
+/* --------------------less-section------------------ */
+
+.less-section {
+    position: relative;
+    padding: 100px 0 150px 0;
+
+    .grad {
+        position: absolute;
+        top: 35%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: -1;
+
+        &::before,
+        &::after {
+            content:'';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            filter: blur(110px);
+        }
+
+        &::before {
+            width: 890px;
+            height: 680px;
+            background: $red_gradient_radial;
+            z-index: -2;
+
+            @include media('<phone') {
+                width: 500px;
+                height: 500px;
+            }
+        }
+
+        &::after {
+            width: 645px;
+            height: 490px;
+            background: $orange_gradient_radial;
+            z-index: -1;
+
+            @include media('<phone') {
+                width: 300px;
+                height: 300px;
+            }
+        }
+    }
+
+    .img-wrap {
+        position: relative;
+        display: inline-block;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 72px;
+    }
+
+    .main-img {
+        max-width: 300px;
+
+        @include media('<tablet') {
+            max-width: 240px;
+        }
+
+        @include media('<phone') {
+            max-width: 180px;
+        }
+    }
+
+    .img {
+        position: absolute;
+        bottom: 80px;
+        left: -200px;
+        max-width: 250px;
+        z-index: -1;
+
+        @include media('<tablet') {
+            max-width: 190px;
+            left: -150px;
+        }
+
+        @include media('<phone') {
+            max-width: 110px;
+            left: -85px;
+        }
+    }
+
+    .text-wrap {
+        text-align: center;
+        max-width: 837px;
+        margin: 0 auto 96px auto;
+    }
+
+    .title {
+        margin-bottom: 46px;
+    }
+}
