@@ -474,7 +474,7 @@
     }
 }
 
-/* ---------------------how-section----------------- */
+/* ---------------------how-section------------------ */
 
 .how-section{
     padding: 200px 0;
@@ -547,5 +547,66 @@
         @include media('<phone') {
             font-size: 14px;
         }
+    }
+}
+
+/* -------------------sources-section---------------- */
+
+.sources-section {
+    padding: 100px 0 180px 0;
+
+    @include media('<tablet') {
+        padding: 50px 0;
+    }
+
+    .content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: 44px;
+        column-gap: 20px;
+
+        @include media('<desktop') {
+            flex-direction: column;
+        }
+    }
+
+    .img-wrap {
+        max-width: 650px;
+    }
+
+    .block {
+        width: 100%;
+        max-width: 480px;
+
+        @include media('<desktop') {
+            text-align: center;
+        }
+    }
+
+    .title {
+        margin-bottom: 40px;
+    }
+
+    .text {
+        margin: 0;
+    }
+
+    .box {
+        margin-top: 40px;
+        padding: 24px 32px;
+        background: #205A5E0A;
+        border-radius: 19px;
+        box-shadow: $box-shadow-gray;
+    }
+
+    .box-title {
+        margin-bottom: 8px;
+        background-image: $white_gradient;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-box-decoration-break: clone;
+        font: $bold 18px/1.4 $Fontspring;
+        text-transform: uppercase;
     }
 }
