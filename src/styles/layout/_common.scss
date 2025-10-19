@@ -600,17 +600,29 @@
 
     .content {
         display: flex;
-        align-items: center;
         justify-content: space-between;
         row-gap: 44px;
         column-gap: 20px;
 
         @include media('<desktop') {
+            align-items: center;
             flex-direction: column;
         }
     }
 
+    .img-title {
+        text-align: center;
+        font: $regular 42px/1.4 $Gilroy;
+        color: $white;
+        margin: 0;
+
+        @include media('<tablet') {
+            font-size: 26px;
+        }
+    }
+
     .img-wrap {
+        width: 100%;
         max-width: 650px;
     }
 
@@ -647,5 +659,34 @@
         -webkit-box-decoration-break: clone;
         font: $bold 18px/1.4 $Fontspring;
         text-transform: uppercase;
+    }
+
+    &.back-section {
+
+        .content {
+
+            @include media('<desktop') {
+                flex-direction: column-reverse;
+            }
+        }
+
+        .img-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .img {
+            max-width: 340px;
+
+            @include media('<tablet') {
+                max-width: 210px;
+            }
+        }
+
+        .block {
+            max-width: 550px;
+        }
     }
 }
