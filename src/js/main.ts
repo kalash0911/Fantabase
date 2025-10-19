@@ -149,3 +149,36 @@ destroySlidersOnResize(".hoursSlider", 99999, {
         },
     },
 });
+
+
+// For popups
+
+document.addEventListener('DOMContentLoaded', () => {
+    const openButtons = document.querySelectorAll<HTMLElement>('.popup-contact-btn');
+    const modal = document.querySelector<HTMLElement>('.popup-contact');
+    const closeButton = document.querySelector<HTMLElement>('.popup-close');
+    const overlay = document.querySelector<HTMLElement>('.overflow');
+    const body = document.body;
+
+    if (!openButtons.length || !modal || !closeButton || !overlay) {
+        console.log('Modal not initialized: required elements not found.');
+        return;
+    }
+
+    const openModal = () => {
+        modal.classList.add('open');
+        body.classList.add('body_lock');
+    };
+
+    const closeModal = () => {
+        modal.classList.remove('open');
+        body.classList.remove('body_lock');
+    };
+
+    openButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+
+    closeButton.addEventListener('click', closeModal);
+    overlay.addEventListener('click', closeModal);
+});
