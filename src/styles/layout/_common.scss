@@ -472,6 +472,45 @@
     .title {
         margin-bottom: 46px;
     }
+
+    &.miss-section {
+
+        .img {
+            top: 10%;
+            left: auto;
+            right: -215px;
+
+            @include media('<tablet') {
+                max-width: 190px;
+                right: -150px;
+            }
+
+            @include media('<phone') {
+                max-width: 110px;
+                right: -85px;
+            }
+        }
+
+        .icon-img {
+            position: absolute;
+            top: 60%;
+            left: -95%;
+            z-index: -1;
+
+            @include media('<phone') {
+                min-width: 102vw;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .last-img {
+            display: block;
+            width: 100%;
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+    }
 }
 
 /* ---------------------how-section------------------ */
