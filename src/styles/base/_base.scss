@@ -223,6 +223,12 @@ html{
     visibility: hidden;
     transition: $anim_03;
 
+    @include media('<tablet') {
+        max-width: 123px;
+        top: 20px;
+        left: -9px;
+    }
+
     &.is-visible {
         opacity: 1;
         visibility: visible;
@@ -239,6 +245,13 @@ html{
         box-shadow: $box-shadow;
         border-radius: 32px;
         backdrop-filter: blur(5px);
+
+        @include media('<tablet') {
+            padding: 10px 14px;
+            border-radius: 25px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 
     .side-bar-link {
@@ -249,6 +262,11 @@ html{
         gap: 12px;
         padding: 14px 18px;
         border-radius: 32px;
+
+        @include media('<tablet') {
+            min-height: 29px;
+            padding: 5px 10px;
+        }
 
         &.active,
         &:hover {
@@ -270,6 +288,19 @@ html{
         font: $regular 14px/1.2 $Gilroy;
         color: $white;
         opacity: var(--stb-side-bar-link-opacity);
+
+        @include media('<tablet') {
+            display: none;
+            font-size: 10px;
+        }
+
+        &.mob {
+            display: none;
+
+            @include media('<tablet') {
+                display: block;
+            }
+        }
     }
 }
 
