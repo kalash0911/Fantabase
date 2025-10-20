@@ -33,28 +33,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!sidebar || sidevisible.length === 0) return;
 
-    const observer = new IntersectionObserver(
+    // --- Появление сайдбара ---
+    const sidebarObserver = new IntersectionObserver(
         (entries) => {
-            let isAnyVisible = false;
-
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
-                    isAnyVisible = true;
+                    sidebar.classList.add("is-visible");
+                } else {
+                    sidebar.classList.remove("is-visible");
                 }
             });
-
-            if (isAnyVisible) {
-                sidebar.classList.add("is-visible");
-            } else {
-                sidebar.classList.remove("is-visible");
-            }
         },
         {
-            threshold: 0, // Срабатывает при касании секции краем экрана
+            root: null,
+            threshold: 0,
+            rootMargin: "0px 0px -99% 0px",
+            // когда верх секции достигает верхней границы вьюпорта
         }
     );
 
-    sidevisible.forEach((section) => observer.observe(section));
+    sidevisible.forEach((section) => sidebarObserver.observe(section));
 
     const activeSectionObserver = new IntersectionObserver(
         (entries) => {
@@ -79,7 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             });
         },
-        { threshold: 0 }
+        {
+            root: null,
+            threshold: 0,
+            rootMargin: "0px 0px -99% 0px",
+            // когда верх секции достигает верхней границы вьюпорта
+        }
     );
 
     sections.forEach((section) => activeSectionObserver.observe(section));
@@ -188,5 +191,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initPopup("popup-contact-btn", "popup-contact");
     initPopup("popup-waitlist-btn", "popup-waitlist");
+});
+
+// For fixed-btn
+
+document.addEventListener("DOMContentLoaded", () => {
+    const fixedBtn = document.querySelector<HTMLElement>(".fixed-btn");
+    const mainSection = document.querySelector<HTMLElement>(".main-section");
+
+    if (!fixedBtn || !mainSection) return;
+
+    const checkVisibility = () => {
+        const sectionRect = mainSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+
+        // Если нижняя часть экрана находится в пределах секции — скрываем кнопку
+        if (sectionRect.bottom > windowHeight) {
+            fixedBtn.style.opacity = "0";
+            fixedBtn.style.pointerEvents = "none";
+        } else {
+            fixedBtn.style.opacity = "1";
+            fixedBtn.style.pointerEvents = "auto";
+        }
+    };
+
+    window.addEventListener("scroll", checkVisibility);
+    window.addEventListener("resize", checkVisibility);
+    checkVisibility(); // Проверяем сразу при загрузке
 });
 
