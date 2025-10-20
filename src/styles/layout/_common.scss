@@ -5,6 +5,18 @@
     padding: 94px 0 0 0;
     overflow: hidden;
 
+    &.policy-section {
+        padding: 150px 0 300px 0;
+
+        @include media('<tablet') {
+            padding: 60px 0 200px 0;
+        }
+
+        @include media('<phone') {
+            padding: 35px 0 135px 0;
+        }
+    }
+
     &::before,
     &::after {
         content:'';
@@ -1150,5 +1162,42 @@
 
     .form-sm {
         margin: 0 auto;
+    }
+}
+
+/* ---------------policy-content-section------------ */
+
+.policy-content-section {
+    padding: 30px 0 120px 0;
+
+    @include media('<phone') {
+        padding: 10px 0 50px 0;
+    }
+
+    .container {
+        max-width: 700px;
+    }
+
+    h2 {
+        font: $bold 24px/1.1 $Fontspring;
+    }
+
+    p,
+    li {
+       font: $regular 16px/1.4 $Gilroy; 
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 18px;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: underline;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
 }
