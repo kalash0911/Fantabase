@@ -65,6 +65,11 @@
 
     .text {
         text-align: center;
+
+        @include media('<phone') {
+            max-width: 340px;
+            margin: 0 auto;
+        }
     }
 
     .img {
